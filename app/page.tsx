@@ -1,10 +1,13 @@
-import Link from 'next/link';
+export const runtime = 'experimental-edge';
+export const preferredRegion = 'edge';
 
-export default function Page() {
+export default async function (props: any) {
+  const { searchParams, params } = props;
+  const pathname = `${params.team}/${params.domain}/co2`;
+
   return (
-    <div>
-      <p>homepage</p>
-      <Link href="/ssr">SSR demo</Link>
-    </div>
+    <>
+      <p>test 123</p>
+    </>
   );
 }
