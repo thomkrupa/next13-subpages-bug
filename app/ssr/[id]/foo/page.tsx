@@ -1,3 +1,5 @@
+export const runtime = 'experimental-edge';
+
 async function fetchData(params: { id: string }) {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${params.id}`,
