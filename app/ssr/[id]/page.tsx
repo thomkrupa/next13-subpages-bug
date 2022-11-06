@@ -1,6 +1,11 @@
 async function fetchData(params: { id: string }) {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${params.id}`,
+    {
+      headers: {
+        'X-Foo': 'bar',
+      },
+    },
   );
   const data = await res.json();
   return data;
