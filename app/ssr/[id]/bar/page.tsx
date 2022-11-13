@@ -9,7 +9,7 @@ async function fetchData(params: { id: string }) {
 
 export const revalidate = 60;
 
-export const runtime = 'experimental-edge';
+export const runtime = 'node';
 
 export default async function Page({
   params,
