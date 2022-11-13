@@ -1,3 +1,9 @@
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  return [{ id: '1' }, { id: '2' }];
+}
+
 async function fetchData(params: { id: string }) {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${params.id}`,
@@ -7,9 +13,7 @@ async function fetchData(params: { id: string }) {
   return data;
 }
 
-export const revalidate = 60;
-
-export const runtime = 'experimental-edge';
+// export const runtime = 'experimental-edge';
 
 export default async function Page({
   params,
