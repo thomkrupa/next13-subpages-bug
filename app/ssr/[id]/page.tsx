@@ -1,10 +1,15 @@
 async function fetchData(params: { id: string }) {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${params.id}`,
+    { next: { revalidate: 30 } },
   );
   const data = await res.json();
   return data;
 }
+
+export const revalidate = 60;
+
+export const runtime = 'experimental-edge';
 
 export default async function Page({
   params,
