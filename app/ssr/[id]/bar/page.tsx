@@ -9,7 +9,7 @@ async function fetchData(params: { id: string }) {
 
 export const revalidate = 60;
 
-export const runtime = 'node';
+export const runtime = 'nodejs';
 
 export default async function Page({
   params,
