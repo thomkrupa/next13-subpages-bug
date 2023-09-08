@@ -1,3 +1,4 @@
+import { headers } from 'next/headers';
 const isLocalhost = !process.env.VERCEL_URL;
 
 const url = isLocalhost
@@ -5,7 +6,15 @@ const url = isLocalhost
   : `https://${process.env.VERCEL_URL}`;
 
 async function getIp() {
-  const res = await fetch(`${url}/random-data`);
+  const headersList = headers();
+  const ip = headersList.get('x-forwarded-for');
+
+  const res = await fetch(`${url}/random-data`, {
+    headers: {
+      'x-forwarded-for': ip as string,
+    },
+  });
+
   const data = await res.json();
 
   return data.ip;
@@ -16,6 +25,13 @@ export const dynamic = 'force-dynamic';
 
 export default async function Page() {
   const ip = await getIp();
+  const headersList = headers();
 
-  return <p>your ip is: {ip}</p>;
+  return (
+    <p>
+      your ip is: {ip}
+      <br />
+      header forwarded for: {headersList.get('x-forwarded-for')}
+    </p>
+  );
 }
