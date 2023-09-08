@@ -11,6 +11,9 @@ async function getIp() {
   return data.ip;
 }
 
+export const runtime = 'experimental-edge';
+export const dynamic = 'force-dynamic';
+
 export default async function Page() {
   const ip = await getIp();
 
