@@ -15,12 +15,8 @@ async function fetchData(params: { id: string }) {
 
 export const runtime = 'nodejs';
 
-export default async function Page({
-  params,
-}: {
-  params?: any;
-  children?: React.ReactNode;
-}) {
+// @ts-ignore
+export default async function Page({ params }) {
   const data = await fetchData(params);
 
   return (
