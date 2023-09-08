@@ -7,6 +7,7 @@ const url = isLocalhost
 
 async function getIp() {
   const headersList = headers();
+  const ip = headersList.get('x-forwarded-for');
 
   const res = await fetch(`${url}/random-data`, {
     headers: {
