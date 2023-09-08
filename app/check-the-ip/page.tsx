@@ -11,7 +11,7 @@ async function getIp() {
 
   const res = await fetch(`${url}/random-data`, {
     headers: {
-      'x-statsy-ip': ip,
+      'x-statsy-ip': ip || '',
     },
   });
 
