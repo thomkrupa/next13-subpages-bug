@@ -17,7 +17,7 @@ function getIP(request: Request | NextApiRequest) {
       : request.headers['x-real-ip'];
 
   console.log('x-forwarded-for', { xff });
-  console.log('x-statsy-ip', { xStatsyIp });
+  // console.log('x-statsy-ip', { xStatsyIp });
   console.log('x-real-ip', { xRealIp });
 
   return xff ? (Array.isArray(xff) ? xff[0] : xff.split(',')[0]) : '127.0.0.1';
