@@ -11,7 +11,8 @@ async function getIp() {
 
   const res = await fetch(`${url}/random-data`, {
     headers: {
-      'x-forwarded-for': ip as string,
+      'x-forwarded-for': '123.123',
+      'x-statsy-ip': '123.123.123',
     },
   });
 
